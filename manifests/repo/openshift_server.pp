@@ -10,7 +10,7 @@ class yum::repo::openshift_server ($version=4) {
   }
   yum::managed_yumrepo { 'openshift-origin':
     descr          => 'Openshift Origin',
-    baseurl        => "https://mirror.openshift.com/pub/origin-server/release/${version}/rhel-6/packages/${::architecture}",
+    baseurl        => "https://mirror.openshift.com/pub/origin-server/nightly/rhel-6/packages/latest/${::architecture}",
     enabled        => 1,
     gpgcheck       => 0,
     failovermethod => 'priority',
@@ -21,7 +21,7 @@ class yum::repo::openshift_server ($version=4) {
 
   yum::managed_yumrepo { 'openshift-deps':
     descr          => 'Openshift Dependencies',
-    baseurl        => "https://mirror.openshift.com/pub/origin-server/release/${version}/rhel-6/dependencies/${::architecture}",
+    baseurl        => "https://mirror.openshift.com/pub/origin-server/nightly/rhel-6/dependencies/${::architecture}",
     enabled        => 1,
     gpgcheck       => 0,
     failovermethod => 'priority',
